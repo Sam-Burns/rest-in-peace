@@ -1,0 +1,8 @@
+suites:
+
+    Main:
+        namespace: AwinLib\DbAdapterZf1
+        spec_prefix: AwinLibDbAdapterZf1Spec
+        src_path: src/
+        spec_path:  tests/phpspec/
+        psr4_prefix: AwinLib\DbAdapterZf1

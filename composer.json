@@ -1,0 +1,25 @@
+{
+    "name": "Sam-Burns/rest-in-peace",
+
+    "version": "0.1.0-alpha",
+
+    "description": "REST-based micro-framework for PHP",
+
+    "require-dev": {
+        "phpunit/phpunit": "~4.5",
+        "behat/behat":     "3.0.14",
+        "phpspec/phpspec": "2.1.0"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "RestInPeace\\": "src/"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-0": {
+            "RestInPeace\\SampleApp\\": "src-dev/"
+        }
+    }
+}
