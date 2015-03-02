@@ -1,8 +1,7 @@
 suites:
 
     Main:
-        namespace: AwinLib\DbAdapterZf1
-        spec_prefix: AwinLibDbAdapterZf1Spec
+        namespace: RestInPeace
+        spec_prefix: RestInPeaceSpec
         src_path: src/
         spec_path:  tests/phpspec/
-        psr4_prefix: AwinLib\DbAdapterZf1

@@ -8,7 +8,7 @@ use Behat\Gherkin\Node\TableNode;
 /**
  * Defines application features from the specific context.
  */
-class Webserver implements Context, SnippetAcceptingContext
+class WebserverContext implements Context, SnippetAcceptingContext
 {
     /**
      * Initializes context.
