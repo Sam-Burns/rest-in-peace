@@ -1,0 +1,11 @@
+default:
+
+    suites:
+        core_features:
+            paths:    [ %paths.base%/features/bootstrap ]
+            contexts: [ FeatureContext ]
+
+        user_features:
+            paths:    [ %paths.base%/features/bootstrap ]
+            filters:  { role: webserver }
+            contexts: [ WebserverContext ]
