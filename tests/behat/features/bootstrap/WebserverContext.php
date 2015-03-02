@@ -1,5 +1,6 @@
 <?php
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Gherkin\Node\PyStringNode;
@@ -18,6 +19,21 @@ class WebserverContext implements Context, SnippetAcceptingContext
      * context constructor through behat.yml.
      */
     public function __construct()
+    {
+    }
+
+    /**
+     * @When I visit :urlPath
+     */
+    public function iVisit($urlPath)
+    {
+
+    }
+
+    /**
+     * @Then I should get :content
+     */
+    public function iShouldGet($content)
     {
     }
 }
