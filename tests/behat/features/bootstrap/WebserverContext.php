@@ -17,6 +17,9 @@ class WebserverContext implements Context, SnippetAcceptingContext
     /** @var CurlResponse */
     private $response;
 
+    /** @var string */
+    private $domain = 'http://localhost:8080';
+
     /**
      * @param CurlClient|null $curlClient
      */
@@ -30,7 +33,7 @@ class WebserverContext implements Context, SnippetAcceptingContext
      */
     public function iVisit($urlPath)
     {
-        $this->response = $this->curlClient->get($urlPath);
+        $this->response = $this->curlClient->get($this->domain . $urlPath);
     }
 
     /**

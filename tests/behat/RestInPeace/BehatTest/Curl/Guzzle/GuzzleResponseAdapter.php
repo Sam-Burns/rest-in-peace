@@ -1,7 +1,7 @@
 <?php
 namespace RestInPeace\BehatTest\Curl\Guzzle;
 
-use Guzzle\Http\Message\RequestInterface as GuzzleResponse;
+use Guzzle\Http\Message\Response as GuzzleResponse;
 use RestInPeace\BehatTest\Curl\CurlResponse;
 
 class GuzzleResponseAdapter implements CurlResponse
@@ -22,7 +22,7 @@ class GuzzleResponseAdapter implements CurlResponse
      */
     public function getBody()
     {
-        $responseBody = $this->guzzleResponse->getResponseBody();
-        return (string)$responseBody;
+        $responseBody = $this->guzzleResponse->getBody(true);
+        return $responseBody;
     }
 }

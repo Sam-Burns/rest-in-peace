@@ -9,5 +9,5 @@ default:
 
         webserver_features:
             paths:    [ %paths.base%/features/feature_files ]
-            filters:  { tags: webserver ~wip }
+            filters:  { tags: @webserver }
             contexts: [ WebserverContext ]

@@ -24,7 +24,7 @@ class GuzzleClientAdapter implements CurlClient
      */
     public function get($url)
     {
-        $guzzleResponse = $this->guzzleClient->get($url);
+        $guzzleResponse = $this->guzzleClient->get($url)->send();
         return new GuzzleResponseAdapter($guzzleResponse);
     }
 }
