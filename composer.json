@@ -7,8 +7,8 @@
 
     "require-dev": {
         "phpunit/phpunit": "~4.5",
-        "behat/behat":     "3.0.14",
-        "phpspec/phpspec": "2.1.0"
+        "behat/behat":     "3.0.15",
+        "phpspec/phpspec": "2.1.1"
     },
 
     "autoload": {
@@ -20,6 +20,9 @@
     "autoload-dev": {
         "psr-0": {
             "RestInPeace\\SampleApp\\": "src-dev/"
+        },
+        "psr-0": {
+            "RestInPeace\\Test\\": "tests/phpunit/"
         }
     }
 }
