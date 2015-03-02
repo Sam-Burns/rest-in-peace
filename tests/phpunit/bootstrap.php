@@ -1,4 +1,4 @@
 <?php
 
-$bootstrap = new \RestInPeace\Test\Bootstrap;
+$bootstrap = new \RestInPeace\PhpunitTest\Bootstrap;
 $bootstrap->init();
