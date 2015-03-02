@@ -5,14 +5,16 @@ use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
-use RestInPeace\BehatTest\CurlClient\Guzzle as GuzzleClient;
-use RestInPeace\BehatTest\CurlClient;
+use RestInPeace\BehatTest\Curl\Guzzle\GuzzleClientAdapter;
+use RestInPeace\BehatTest\Curl\CurlResponse;
+use RestInPeace\BehatTest\Curl\CurlClient;
 
 class WebserverContext implements Context, SnippetAcceptingContext
 {
     /** @var CurlClient */
     private $curlClient;
 
+    /** @var CurlResponse */
     private $response;
 
     /**
@@ -20,7 +22,7 @@ class WebserverContext implements Context, SnippetAcceptingContext
      */
     public function __construct(CurlClient $curlClient = null)
     {
-        $this->curlClient = $curlClient ?: new GuzzleClient();
+        $this->curlClient = $curlClient ?: new GuzzleClientAdapter();
     }
 
     /**
@@ -28,7 +30,7 @@ class WebserverContext implements Context, SnippetAcceptingContext
      */
     public function iVisit($urlPath)
     {
-
+        $this->response = $this->curlClient->get($urlPath);
     }
 
     /**
@@ -36,5 +38,6 @@ class WebserverContext implements Context, SnippetAcceptingContext
      */
     public function iShouldGet($content)
     {
+        PHPUnit_Framework_Assert::assertEquals($content, $this->response->getBody());
     }
 }

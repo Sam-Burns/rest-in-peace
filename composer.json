@@ -24,8 +24,9 @@
 
     "autoload-dev": {
         "psr-0": {
-            "RestInPeace\\SampleApp\\": "src-dev/",
-            "RestInPeace\\Test\\": "tests/phpunit/"
+            "RestInPeace\\SampleApp\\":   "src-dev/",
+            "RestInPeace\\PhpunitTest\\": "tests/phpunit/",
+            "RestInPeace\\BehatTest\\":   "tests/behat/"
         }
     }
 }

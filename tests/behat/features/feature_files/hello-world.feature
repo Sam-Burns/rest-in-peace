@@ -3,7 +3,7 @@ Feature: Saying hello world
   As a developer building an API
   I want to
 
-  @webserver
+  @webserver @wip
   Scenario: Calling 'hello world' service
     When I visit '/hello-world/'
     Then I should get 'hello world'
