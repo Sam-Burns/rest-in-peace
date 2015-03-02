@@ -1,11 +1,12 @@
 default:
 
     suites:
+
         all_features:
             paths:    [ %paths.base%/features/feature_files ]
             contexts: [ FeatureContext ]
 
         webserver_features:
             paths:    [ %paths.base%/features/feature_files ]
-            filters:  { role: webserver }
+            filters:  { tags: webserver }
             contexts: [ WebserverContext ]
