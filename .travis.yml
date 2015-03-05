@@ -1,0 +1,13 @@
+php:
+    - 5.3
+    - 5.4
+
+install:
+    - composer self-update
+    - composer install
+
+script:
+    - ./test.sh
+
+#after_script:
+#    - php vendor/bin/coveralls -v
