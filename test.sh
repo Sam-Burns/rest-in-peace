@@ -12,6 +12,6 @@ echo '### BEHAT BUSINESS LOGIC ###';
 vendor/bin/behat --config tests/behat/behat.yml --suite all_features;
 
 echo '### BEHAT UI ###';
-PROCESS_ID=`php -S localhost:8080 ./src-dev/src/index.php > /dev/null 2>&1 & echo $!`;
+PROCESS_ID=`php -S localhost:8080 ./src-dev/src/index.php > /dev/null & echo $!`;
 vendor/bin/behat --config tests/behat/behat.yml --suite webserver_features;
 kill -9 $PROCESS_ID;
