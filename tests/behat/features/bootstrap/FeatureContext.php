@@ -24,7 +24,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
     public function iVisit($urlPath)
     {
         $application = new Application;
-        $application->configureFromFolder(APPLICATION_ROOT_DIR . '/src-dev/config');
+        $application->configureFromFolder('/src-dev/config');
         $this->response = $application->visit($urlPath);
     }
 

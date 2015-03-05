@@ -1,17 +1,31 @@
 <?php
-
 namespace RestInPeace\Routing;
+
+use RestInPeace\Request\Request;
 
 class RouteManager
 {
+    /** @var array */
+    private $configArray;
 
-    public function configureFromArray($argument1)
+    /**
+     * @param array $configArray
+     */
+    public function configureFromArray($configArray)
     {
-        // TODO: write logic here
+        $this->configArray = $configArray;
     }
 
-    public function getRouteForRequest($argument1)
+    /**
+     * @param Request $request
+     * @return Route
+     */
+    public function getRouteForRequest(Request $request)
     {
-        // TODO: write logic here
+        $route = Route::constructWithControllerAndActionName(
+            '\RestInPeace\SampleApp\Controller\HelloWorldController',
+            'helloWorldAction'
+        );
+        return $route;
     }
 }

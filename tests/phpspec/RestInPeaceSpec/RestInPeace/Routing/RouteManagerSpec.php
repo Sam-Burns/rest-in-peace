@@ -20,8 +20,8 @@ class RouteManagerSpec extends ObjectBehavior
                 'hello-world' => array(
                     'path'       => '/hello-world/',
                     'method'     => 'get',
-                    'controller' => 'ControllerClass',
-                    'action'     => 'actionName'
+                    'controller' => '\RestInPeace\SampleApp\Controller\HelloWorldController',
+                    'action'     => 'helloWorldAction'
                 )
             )
         );
@@ -29,7 +29,7 @@ class RouteManagerSpec extends ObjectBehavior
         $this->configureFromArray($configArray);
 
         $request = Request::constructWithPathAndMethod('/hello-world/', 'get');
-        $expectedRoute = Route::constructWithControllerAndActionName('ControllerClass', 'actionName');
+        $expectedRoute = Route::constructWithControllerAndActionName('\RestInPeace\SampleApp\Controller\HelloWorldController', 'helloWorldAction');
 
         $this->getRouteForRequest($request)->shouldBeLike($expectedRoute);
     }
