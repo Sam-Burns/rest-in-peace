@@ -8,10 +8,15 @@ install:
     - composer self-update
     - composer install
 
+before_script:
+    - php -S localhost:8080 ./src-dev/src/index.php &
+    - sleep 3
+
 script:
     - vendor/bin/phpspec run --config tests/phpspec/phpspec.yml;
     - vendor/bin/phpunit --config tests/phpunit/phpunit.xml;
     - vendor/bin/behat --config tests/behat/behat.yml --suite all_features;
+    - vendor/bin/behat --config tests/behat/behat.yml --suite webserver_features;
 
 #after_script:
 #    - php vendor/bin/coveralls -v
