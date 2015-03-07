@@ -27,11 +27,17 @@ class RouteSpec extends ObjectBehavior
             'path'                 => '/path/'
         );
 
-
         $this->beConstructedThrough('constructFromArray', array($arrayToConstructFrom));
         $this->getControllerClassname()->shouldBe('ControllerClassname');
         $this->getActionName()->shouldBe('action');
         $this->getMethod()->shouldBe('GET');
         $this->getPath()->shouldBe('/path/');
+    }
+
+    function it_knows_if_it_matches_a_path()
+    {
+        $this->beConstructedThrough('constructWithPath', array('/path/'));
+        $this->matchesPath('/path/')->shouldReturn(true);
+        $this->matchesPath('/wrongpath/')->shouldReturn(false);
     }
 }

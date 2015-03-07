@@ -15,11 +15,10 @@ class ApplicationSpec extends ObjectBehavior
 {
     function let(
         RouteManager       $routeManager,
-        ConfigFileReader   $configFileReader,
         FrontController    $frontController,
         ResponseDispatcher $responseDispatcher
     ) {
-        $this->beConstructedWith($routeManager, $configFileReader, $frontController, $responseDispatcher);
+        $this->beConstructedWith($routeManager, $frontController, $responseDispatcher);
     }
 
     function it_can_be_configured_from_folder(
@@ -39,7 +38,7 @@ class ApplicationSpec extends ObjectBehavior
         $this->run();
     }
 
-    function it_can_run_with_request(FrontController $frontController, JsonResponse $response, ResponseDispatcher $responseDispatcher, Request $request)
+    function it_can_run_with_request(FrontController $frontController, JsonResponse $response, Request $request)
     {
         $frontController->executeRequest($request)->willReturn($response);
         $this->getResponseForRequest($request);

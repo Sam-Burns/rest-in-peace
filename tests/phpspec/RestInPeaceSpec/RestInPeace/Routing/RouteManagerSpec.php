@@ -5,32 +5,22 @@ use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use RestInPeace\Request\Request;
 use RestInPeace\Routing\Route;
+use RestInPeace\Routing\RouteBuilder;
 
 class RouteManagerSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    function let(RouteBuilder $routeBuilder)
     {
-        $this->shouldHaveType('RestInPeace\Routing\RouteManager');
+        $this->beConstructedWith($routeBuilder);
     }
 
-    function it_can_be_configured_from_an_array()
+    function it_can_get_a_route_for_a_reqeust(RouteBuilder $routeBuilder)
     {
-        $configArray = array(
-            'routes' => array(
-                'hello-world' => array(
-                    'path'       => '/hello-world/',
-                    'method'     => 'get',
-                    'controller' => '\RestInPeace\SampleApp\Controller\HelloWorldController',
-                    'action'     => 'helloWorldAction'
-                )
-            )
-        );
+        $route = Route::constructWithPath('/path/');
+        $routeBuilder->getRoutes()->willReturn(array($route));
 
-        $this->configureFromArray($configArray);
+        $request = Request::constructWithPathAndMethod('/path/', 'GET');
 
-        $request = Request::constructWithPathAndMethod('/hello-world/', 'get');
-        $expectedRoute = Route::constructWithControllerAndActionName('\RestInPeace\SampleApp\Controller\HelloWorldController', 'helloWorldAction');
-
-        $this->getRouteForRequest($request)->shouldBeLike($expectedRoute);
+        $this->getRouteForRequest($request)->shouldBe($route);
     }
 }

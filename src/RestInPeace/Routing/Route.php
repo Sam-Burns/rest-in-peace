@@ -30,6 +30,17 @@ class Route
     }
 
     /**
+     * @param string $path
+     * @return Route
+     */
+    public static function constructWithPath($path)
+    {
+        $route = new Route();
+        $route->path = $path;
+        return $route;
+    }
+
+    /**
      * @param string[] $arrayToConstructFrom
      * @return Route
      */
@@ -91,5 +102,14 @@ class Route
     public function getPath()
     {
         return $this->path;
+    }
+
+    /**
+     * @param string $path
+     * @return bool
+     */
+    public function matchesPath($path)
+    {
+        return $path === $this->path;
     }
 }

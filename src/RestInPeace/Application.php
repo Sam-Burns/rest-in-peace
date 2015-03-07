@@ -6,16 +6,12 @@ use RestInPeace\Application\ResponseDispatcher;
 use RestInPeace\Request\Request;
 use RestInPeace\Response\JsonResponse;
 use RestInPeace\Routing\RouteManager;
-use RestInPeace\Config\ConfigFileReader;
 use RestInPeace\Routing\Route;
 
 class Application
 {
     /** @var RouteManager */
     private $routeManager;
-
-    /** @var ConfigFileReader */
-    private $configFileReader;
 
     /** @var FrontController */
     private $frontController;
@@ -25,19 +21,16 @@ class Application
 
     /**
      * @param RouteManager|null       $routeManager
-     * @param ConfigFileReader|null   $configFileReader
      * @param FrontController|null    $frontController
      * @param ResponseDispatcher|null $responseDispatcher
      */
     public function __construct(
         RouteManager       $routeManager       = null,
-        ConfigFileReader   $configFileReader   = null,
         FrontController    $frontController    = null,
         ResponseDispatcher $responseDispatcher = null
     ) {
         $this->routeManager = $routeManager ?: new RouteManager();
-        $this->configFileReader = $configFileReader ?: new ConfigFileReader();
-        $this->frontController = $frontController ?: new FrontController();
+        $this->frontController = $frontController ?: new FrontController($this->routeManager);
         $this->responseDispatcher = $responseDispatcher ?: new ResponseDispatcher();
     }
 
@@ -56,8 +49,7 @@ class Application
      */
     public function configureFromFolder($relativePathToConfigFolder)
     {
-        $routingData = $this->configFileReader->read(APPLICATION_ROOT_DIR . $relativePathToConfigFolder . '/routing.php');
-        $this->routeManager->configureFromArray($routingData);
+        $this->routeManager->addConfigFile(APPLICATION_ROOT_DIR . $relativePathToConfigFolder . '/routing.php');
     }
 
     /**
