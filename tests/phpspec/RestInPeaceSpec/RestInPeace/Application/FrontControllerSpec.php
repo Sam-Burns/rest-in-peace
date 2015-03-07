@@ -27,13 +27,13 @@ class FrontControllerSpec extends ObjectBehavior
     }
 
     function it_can_build_and_execute_a_request(
-        RouteManager                   $routeManager,
-        Route                          $route,
-        RequestFromSuperglobalsBuilder $requestFromSuperglobalsBuilder,
-        Request                        $request,
-        StubController                 $stubController,
+        RouteManager                           $routeManager,
+        Route                                  $route,
+        RequestFromSuperglobalsBuilder         $requestFromSuperglobalsBuilder,
+        Request                                $request,
+        StubController                         $stubController,
         DirectInstantiationControllerRetriever $directInstantiationControllerRetriever,
-        JsonResponse $response
+        JsonResponse                           $response
     ) {
         $requestFromSuperglobalsBuilder->buildRequest()->willReturn($request);
         $routeManager->getRouteForRequest($request)->willReturn($route);
@@ -45,12 +45,12 @@ class FrontControllerSpec extends ObjectBehavior
     }
 
     function it_can_execute_a_request(
-        RouteManager                   $routeManager,
-        Route                          $route,
-        Request                        $request,
-        StubController                 $stubController,
+        RouteManager                           $routeManager,
+        Route                                  $route,
+        Request                                $request,
+        StubController                         $stubController,
         DirectInstantiationControllerRetriever $directInstantiationControllerRetriever,
-        JsonResponse $response
+        JsonResponse                           $response
     ) {
         $routeManager->getRouteForRequest($request)->willReturn($route);
         $route->getControllerClassname()->willReturn('\RestInPeace\SampleApp\Controller\HelloWorldController');

@@ -5,7 +5,7 @@ class DirectInstantiationControllerRetriever implements ControllerRetriever
 {
     /**
      * @param string $name
-     * @return obejct
+     * @return object
      */
     public function getController($name)
     {
