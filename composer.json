@@ -26,7 +26,8 @@
         "psr-0": {
             "RestInPeace\\SampleApp\\":   "src-dev/src/",
             "RestInPeace\\PhpunitTest\\": "tests/phpunit/",
-            "RestInPeace\\BehatTest\\":   "tests/behat/"
+            "RestInPeace\\BehatTest\\":   "tests/behat/",
+            "RestInPeace\\PhpspecTest\\":    "tests/phpspec/"
         }
     }
 }
