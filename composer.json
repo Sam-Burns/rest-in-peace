@@ -6,7 +6,7 @@
     "description": "REST-based micro-framework for PHP",
 
     "require": {
-
+        "symfony/http-foundation": "2.6.4"
     },
 
     "require-dev": {
@@ -27,7 +27,7 @@
             "RestInPeace\\SampleApp\\":   "src-dev/src/",
             "RestInPeace\\PhpunitTest\\": "tests/phpunit/",
             "RestInPeace\\BehatTest\\":   "tests/behat/",
-            "RestInPeace\\PhpspecTest\\":    "tests/phpspec/"
+            "RestInPeace\\PhpspecTest\\": "tests/phpspec/"
         }
     }
 }
