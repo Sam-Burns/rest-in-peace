@@ -29,3 +29,4 @@ if [ $PHP_VERSION_HAS_SERVER ] ;
     else
         echo -e 'ONLY RUNS WITH PHP5.4+\n\n';
 fi ;
+echo -e '\n';
