@@ -43,4 +43,20 @@ class FrontControllerSpec extends ObjectBehavior
         $stubController->helloWorldAction($request)->willReturn($response);
         $this->buildAndExecuteRequest()->shouldReturn($response);
     }
+
+    function it_can_execute_a_request(
+        RouteManager                   $routeManager,
+        Route                          $route,
+        Request                        $request,
+        StubController                 $stubController,
+        DirectInstantiationControllerRetriever $directInstantiationControllerRetriever,
+        JsonResponse $response
+    ) {
+        $routeManager->getRouteForRequest($request)->willReturn($route);
+        $route->getControllerClassname()->willReturn('\RestInPeace\SampleApp\Controller\HelloWorldController');
+        $route->getActionName()->willReturn('helloWorldAction');
+        $directInstantiationControllerRetriever->getController('\RestInPeace\SampleApp\Controller\HelloWorldController')->willReturn($stubController);
+        $stubController->helloWorldAction($request)->willReturn($response);
+        $this->executeRequest($request)->shouldReturn($response);
+    }
 }

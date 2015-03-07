@@ -42,17 +42,12 @@ class Application
     }
 
     /**
-     * @param string $urlPath
+     * @param Request $request
      * @return JsonResponse
      */
-    public function visit($urlPath)
+    public function getResponseForRequest(Request $request)
     {
-        $request = new Request();
-        $route = $this->getRouteForRequest($request);
-        $controllerName = $route->getControllerClassname();
-        $actionName = $route->getActionName();
-        $controllerObject = new $controllerName;
-        $response = call_user_func_array(array($controllerObject, $actionName), array($request));
+        $response = $this->frontController->executeRequest($request);
         return $response;
     }
 

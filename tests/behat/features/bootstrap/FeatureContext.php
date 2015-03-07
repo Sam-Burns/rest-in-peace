@@ -7,6 +7,7 @@ use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use RestInPeace\Application;
 use RestInPeace\Response\JsonResponse;
+use RestInPeace\Request\Request;
 
 class FeatureContext implements Context, SnippetAcceptingContext
 {
@@ -25,7 +26,8 @@ class FeatureContext implements Context, SnippetAcceptingContext
     {
         $application = new Application;
         $application->configureFromFolder('/src-dev/config');
-        $this->response = $application->visit($urlPath);
+        $request = Request::constructWithPathAndMethod($urlPath, 'GET');
+        $this->response = $application->getResponseForRequest($request);
     }
 
     /**

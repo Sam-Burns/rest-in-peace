@@ -38,4 +38,10 @@ class ApplicationSpec extends ObjectBehavior
         $responseDispatcher->dispatch($response)->shouldBeCalled();
         $this->run();
     }
+
+    function it_can_run_with_request(FrontController $frontController, JsonResponse $response, ResponseDispatcher $responseDispatcher, Request $request)
+    {
+        $frontController->executeRequest($request)->willReturn($response);
+        $this->getResponseForRequest($request);
+    }
 }

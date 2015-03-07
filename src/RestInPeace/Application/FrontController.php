@@ -6,6 +6,7 @@ use RestInPeace\Request\RequestFromSuperglobalsBuilder;
 use RestInPeace\Application\ControllerRetrieval\DirectInstantiationControllerRetriever;
 use RestInPeace\Application\ControllerRetrieval\ControllerRetriever;
 use RestInPeace\Response\JsonResponse;
+use RestInPeace\Request\Request;
 
 class FrontController
 {
@@ -39,6 +40,15 @@ class FrontController
     public function buildAndExecuteRequest()
     {
         $request = $this->requestFromSuperglobalsBuilder->buildRequest();
+        return $this->executeRequest($request);
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function executeRequest(Request $request)
+    {
         $route = $this->routeManager->getRouteForRequest($request);
         $controllerClassname = $route->getControllerClassname();
         $actionName = $route->getActionName();
