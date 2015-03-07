@@ -17,4 +17,21 @@ class RouteSpec extends ObjectBehavior
         $this->getControllerClassname()->shouldBe('controller');
         $this->getActionName()->shouldBe('action');
     }
+
+    function it_can_be_constructed_with_an_array()
+    {
+        $arrayToConstructFrom = array(
+            'controller_classname' => 'ControllerClassname',
+            'action_name'          => 'action',
+            'method'               => 'GET',
+            'path'                 => '/path/'
+        );
+
+
+        $this->beConstructedThrough('constructFromArray', array($arrayToConstructFrom));
+        $this->getControllerClassname()->shouldBe('ControllerClassname');
+        $this->getActionName()->shouldBe('action');
+        $this->getMethod()->shouldBe('GET');
+        $this->getPath()->shouldBe('/path/');
+    }
 }

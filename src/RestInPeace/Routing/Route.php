@@ -10,6 +10,12 @@ class Route
     /** @var string */
     private $actionName;
 
+    /** @var string */
+    private $path;
+
+    /** @var string */
+    private $method;
+
     /**
      * @param string $controllerClassname
      * @param string $actionName
@@ -20,6 +26,22 @@ class Route
         $route = new Route();
         $route->setControllerClassname($controllerClassname);
         $route->setActionName($actionName);
+        return $route;
+    }
+
+    /**
+     * @param string[] $arrayToConstructFrom
+     * @return Route
+     */
+    public static function constructFromArray($arrayToConstructFrom)
+    {
+        $route = new Route();
+
+        $route->controllerClassname = $arrayToConstructFrom['controller_classname'];
+        $route->actionName          = $arrayToConstructFrom['action_name'];
+        $route->method              = $arrayToConstructFrom['method'];
+        $route->path                = $arrayToConstructFrom['path'];
+
         return $route;
     }
 
@@ -53,5 +75,21 @@ class Route
     private function setActionName($actionName)
     {
         $this->actionName = $actionName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMethod()
+    {
+        return $this->method;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
     }
 }
