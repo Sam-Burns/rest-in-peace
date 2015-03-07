@@ -2,7 +2,6 @@
 namespace RestInPeace\SampleApp\Controller;
 
 use RestInPeace\Request\Request;
-use RestInPeace\Request\RequestFromSuperglobalsBuilder;
 use RestInPeace\Response\JsonResponse;
 
 class HelloWorldController
