@@ -10,7 +10,7 @@
         "php": ">=5.4.0",
 
         "symfony/http-foundation": "2.6.4",
-        "Sam-Burns/dirty-needle":  "0.1.1 || 1.0.1 || 2.0.1"
+        "Sam-Burns/dirty-needle":  "0.1.2 || 1.0.2 || 2.0.2"
     },
 
     "require-dev": {
