@@ -9,7 +9,7 @@ class RouteBuilder
     private $configFileReader;
 
     /** @var array */
-    private $routingConfig = array();
+    private $routingConfig = [];
 
     /**
      * @param ConfigFileReader|null $configFileReader
