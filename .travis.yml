@@ -10,7 +10,7 @@ install:
     - composer install
 
 script:
-    - ./test.sh
+    - ./tests/travis-tests.sh
 
 after_script:
     - php vendor/bin/coveralls -v
