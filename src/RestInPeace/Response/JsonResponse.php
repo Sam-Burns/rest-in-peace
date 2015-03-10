@@ -20,7 +20,7 @@ class JsonResponse
     /**
      * @param string $body
      */
-    private function setBody($body)
+    public function setBody($body)
     {
         $this->body = $body;
     }
