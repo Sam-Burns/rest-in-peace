@@ -12,9 +12,9 @@ echo '### PHPUNIT ###';
 echo -e '###############\n\n';
 vendor/bin/phpunit --config tests/phpunit/phpunit.xml;
 
-echo -e '\n\n#################';
-echo '### BEHAT CLI ###';
-echo -e '#################\n\n';
+echo -e '\n\n####################';
+echo '### BEHAT INLINE ###';
+echo -e '####################\n\n';
 vendor/bin/behat --config tests/behat/behat.yml --suite all_features;
 
 echo -e '\n\n#######################';
