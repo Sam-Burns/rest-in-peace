@@ -35,6 +35,16 @@ class FrontController
     }
 
     /**
+     * @param string[] $filenames
+     */
+    public function configureFromFiles(array $filenames)
+    {
+        foreach ($filenames as $filename) {
+            $this->routeManager->addConfigFile($filename);
+        }
+    }
+
+    /**
      * @return JsonResponse
      */
     public function buildAndExecuteRequest()
