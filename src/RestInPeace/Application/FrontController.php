@@ -25,13 +25,13 @@ class FrontController
      * @param ControllerRetriever            $controllerRetriever
      */
     public function __construct(
-        RouteManager                   $routeManager                   = null,
-        RequestFromSuperglobalsBuilder $requestFromSuperglobalsBuilder = null,
-        ControllerRetriever            $controllerRetriever            = null
+        RouteManager                   $routeManager,
+        RequestFromSuperglobalsBuilder $requestFromSuperglobalsBuilder,
+        ControllerRetriever            $controllerRetriever
     ) {
-        $this->routeManager                   = $routeManager                   ?: new RouteManager();
-        $this->requestFromSuperglobalsBuilder = $requestFromSuperglobalsBuilder ?: new RequestFromSuperglobalsBuilder();
-        $this->controllerRetriever            = $controllerRetriever            ?: new DirectInstantiationControllerRetriever();
+        $this->routeManager                   = $routeManager;
+        $this->requestFromSuperglobalsBuilder = $requestFromSuperglobalsBuilder;
+        $this->controllerRetriever            = $controllerRetriever;
     }
 
     /**
