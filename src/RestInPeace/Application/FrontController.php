@@ -3,7 +3,6 @@ namespace RestInPeace\Application;
 
 use RestInPeace\Routing\RouteManager;
 use RestInPeace\Request\RequestFromSuperglobalsBuilder;
-use RestInPeace\Application\ControllerRetrieval\DirectInstantiationControllerRetriever;
 use RestInPeace\Application\ControllerRetrieval\ControllerRetriever;
 use RestInPeace\Response\JsonResponse;
 use RestInPeace\Request\Request;
