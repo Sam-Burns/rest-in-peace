@@ -14,7 +14,7 @@ class ConfigFileReaderTest extends TestCase
         $expectedResult = array('message' => 'hello world');
 
         // ACT
-        $result = $configFileReader->read(APPLICATION_ROOT_DIR . '/tests/phpunit/fixtures/config_files/simple_config_file.php');
+        $result = $configFileReader->read(APPLICATION_ROOT_DIR . '/../tests/phpunit/fixtures/config_files/simple_config_file.php');
 
         // ASSERT
         $this->assertEquals($expectedResult, $result);

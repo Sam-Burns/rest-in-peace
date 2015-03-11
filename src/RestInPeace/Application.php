@@ -45,11 +45,13 @@ class Application
     }
 
     /**
-     * @param string $relativePathToConfigFolder
+     * @param string[] $filenames
      */
-    public function configureFromFolder($relativePathToConfigFolder)
+    public function configureFromFiles(array $filenames)
     {
-        $this->routeManager->addConfigFile(APPLICATION_ROOT_DIR . $relativePathToConfigFolder . '/routing.php');
+        foreach ($filenames as $filename) {
+            $this->routeManager->addConfigFile($filename);
+        }
     }
 
     /**

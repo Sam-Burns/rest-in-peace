@@ -16,7 +16,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
     public function __construct()
     {
-        require_once __DIR__ . '/../../../../src-dev/src/bootstrap.php';
+        require_once __DIR__ . '/../../../../src-dev/bootstrap.php';
     }
 
     /**
@@ -25,7 +25,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
     public function iVisit($urlPath)
     {
         $application = new Application;
-        $application->configureFromFolder('/src-dev/config');
+        $application->configureFromFiles([APPLICATION_ROOT_DIR . '/config/rest-in-peace/routing.php']);
         $request = Request::constructWithPathAndMethod($urlPath, 'GET');
         $this->response = $application->getResponseForRequest($request);
     }

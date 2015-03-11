@@ -20,7 +20,7 @@ vendor/bin/behat --config tests/behat/behat.yml --suite all_features;
 echo -e '\n\n#######################';
 echo '### BEHAT WEBSERVER ###';
 echo -e '#######################\n\n';
-PROCESS_ID=`php -S localhost:8080 ./src-dev/src/index.php > /dev/null & echo $!`;
+PROCESS_ID=`php -S localhost:8080 ./src-dev/public/index.php > /dev/null & echo $!`;
 vendor/bin/behat --config tests/behat/behat.yml --suite webserver_features;
 kill -9 $PROCESS_ID;
 echo -e '\n';

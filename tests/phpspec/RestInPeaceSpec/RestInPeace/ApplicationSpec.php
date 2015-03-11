@@ -8,7 +8,6 @@ use RestInPeace\Application\ResponseDispatcher;
 use RestInPeace\Request\Request;
 use RestInPeace\Response\JsonResponse;
 use RestInPeace\Routing\Route;
-use RestInPeace\Config\ConfigFileReader;
 use RestInPeace\Routing\RouteManager;
 
 class ApplicationSpec extends ObjectBehavior
@@ -21,12 +20,12 @@ class ApplicationSpec extends ObjectBehavior
         $this->beConstructedWith($routeManager, $frontController, $responseDispatcher);
     }
 
-    function it_can_be_configured_from_folder(
+    function it_can_be_configured_from_files(
         RouteManager     $routeManager,
         Route            $route,
         Request          $request
     ) {
-        require_once __DIR__ . '/../../../../src-dev/src/bootstrap.php';
+        require_once __DIR__ . '/../../../../src-dev/bootstrap.php';
         $routeManager->getRouteForRequest($request)->willReturn($route);
         $this->getRouteForRequest($request)->shouldBe($route);
     }
