@@ -54,15 +54,6 @@ class Application
         }
     }
 
-    /**
-     * @param Request $request
-     * @return Route
-     */
-    public function getRouteForRequest(Request $request)
-    {
-        return $this->routeManager->getRouteForRequest($request);
-    }
-
     public function run()
     {
         $response = $this->frontController->buildAndExecuteRequest();

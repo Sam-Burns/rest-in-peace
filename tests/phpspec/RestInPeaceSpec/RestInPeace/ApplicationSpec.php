@@ -20,16 +20,6 @@ class ApplicationSpec extends ObjectBehavior
         $this->beConstructedWith($routeManager, $frontController, $responseDispatcher);
     }
 
-    function it_can_be_configured_from_files(
-        RouteManager     $routeManager,
-        Route            $route,
-        Request          $request
-    ) {
-        require_once __DIR__ . '/../../../../src-dev/bootstrap.php';
-        $routeManager->getRouteForRequest($request)->willReturn($route);
-        $this->getRouteForRequest($request)->shouldBe($route);
-    }
-
     function it_can_run(FrontController $frontController, JsonResponse $response, ResponseDispatcher $responseDispatcher)
     {
         $frontController->buildAndExecuteRequest()->willReturn($response);
