@@ -9,16 +9,16 @@ use RestInPeace\Request\RequestFromSuperglobalsBuilder;
 use RestInPeace\Response\JsonResponse;
 use RestInPeace\Routing\Route;
 use RestInPeace\Routing\RouteManager;
-use RestInPeace\Application\ControllerRetrieval\DirectInstantiationControllerRetriever;
+use RestInPeace\Application\ControllerRetrieval\ControllerRetriever;
 
 class FrontControllerSpec extends ObjectBehavior
 {
     function let(
-        RouteManager $routeManager,
+        RouteManager                   $routeManager,
         RequestFromSuperglobalsBuilder $requestFromSuperglobalsBuilder,
-        DirectInstantiationControllerRetriever $directInstantiationControllerRetriever
+        ControllerRetriever            $controllerRetriever
     ) {
-        $this->beConstructedWith($routeManager, $requestFromSuperglobalsBuilder, $directInstantiationControllerRetriever);
+        $this->beConstructedWith($routeManager, $requestFromSuperglobalsBuilder, $controllerRetriever);
     }
 
     function it_is_initializable()
@@ -27,35 +27,35 @@ class FrontControllerSpec extends ObjectBehavior
     }
 
     function it_can_build_and_execute_a_request(
-        RouteManager                           $routeManager,
-        Route                                  $route,
-        RequestFromSuperglobalsBuilder         $requestFromSuperglobalsBuilder,
-        Request                                $request,
-        StubController                         $stubController,
-        DirectInstantiationControllerRetriever $directInstantiationControllerRetriever,
-        JsonResponse                           $response
+        RouteManager                   $routeManager,
+        Route                          $route,
+        RequestFromSuperglobalsBuilder $requestFromSuperglobalsBuilder,
+        Request                        $request,
+        StubController                 $stubController,
+        ControllerRetriever            $controllerRetriever,
+        JsonResponse                   $response
     ) {
         $requestFromSuperglobalsBuilder->buildRequest()->willReturn($request);
         $routeManager->getRouteForRequest($request)->willReturn($route);
-        $route->getControllerClassname()->willReturn('\RestInPeace\SampleApp\Controller\HelloWorldController');
+        $route->getControllerServiceId()->willReturn('controller-service-id');
         $route->getActionName()->willReturn('helloWorldAction');
-        $directInstantiationControllerRetriever->getController('\RestInPeace\SampleApp\Controller\HelloWorldController')->willReturn($stubController);
+        $controllerRetriever->getController('controller-service-id')->willReturn($stubController);
         $stubController->helloWorldAction($request)->willReturn($response);
         $this->buildAndExecuteRequest()->shouldReturn($response);
     }
 
     function it_can_execute_a_request(
-        RouteManager                           $routeManager,
-        Route                                  $route,
-        Request                                $request,
-        StubController                         $stubController,
-        DirectInstantiationControllerRetriever $directInstantiationControllerRetriever,
-        JsonResponse                           $response
+        RouteManager        $routeManager,
+        Route               $route,
+        Request             $request,
+        StubController      $stubController,
+        ControllerRetriever $controllerRetriever,
+        JsonResponse        $response
     ) {
         $routeManager->getRouteForRequest($request)->willReturn($route);
-        $route->getControllerClassname()->willReturn('\RestInPeace\SampleApp\Controller\HelloWorldController');
+        $route->getControllerServiceId()->willReturn('controller-service-id');
         $route->getActionName()->willReturn('helloWorldAction');
-        $directInstantiationControllerRetriever->getController('\RestInPeace\SampleApp\Controller\HelloWorldController')->willReturn($stubController);
+        $controllerRetriever->getController('controller-service-id')->willReturn($stubController);
         $stubController->helloWorldAction($request)->willReturn($response);
         $this->executeRequest($request)->shouldReturn($response);
     }

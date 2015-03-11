@@ -21,7 +21,7 @@ class RouteBuilderSpec extends ObjectBehavior
                     'hello-world' => array(
                         'path'                 => '/hello-world/',
                         'method'               => 'get',
-                        'controller_classname' => '\RestInPeace\SampleApp\Controller\HelloWorldController',
+                        'controller_serviceid' => 'controller-service-id',
                         'action_name'          => 'helloWorldAction'
                     )
                 )

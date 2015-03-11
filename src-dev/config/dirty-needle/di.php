@@ -4,6 +4,10 @@ return array(
 
     'dirty-needle' => array(
 
+        'hello-world-controller' => array(
+            'class' => '\RestInPeace\SampleApp\Controller\HelloWorldController'
+        ),
+
         'di-only-controller' => array(
             'class' => 'RestInPeace\SampleApp\Controller\DiOnlyController',
             'arguments' => array(

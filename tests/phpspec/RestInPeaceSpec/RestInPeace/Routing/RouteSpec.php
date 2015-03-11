@@ -14,21 +14,21 @@ class RouteSpec extends ObjectBehavior
     function it_can_be_constructed_with_a_controller_and_action_name()
     {
         $this->beConstructedThrough('constructWithControllerAndActionName', array('controller', 'action'));
-        $this->getControllerClassname()->shouldBe('controller');
+        $this->getControllerServiceId()->shouldBe('controller');
         $this->getActionName()->shouldBe('action');
     }
 
     function it_can_be_constructed_with_an_array()
     {
         $arrayToConstructFrom = array(
-            'controller_classname' => 'ControllerClassname',
+            'controller_serviceid' => 'controller-service-id',
             'action_name'          => 'action',
             'method'               => 'GET',
             'path'                 => '/path/'
         );
 
         $this->beConstructedThrough('constructFromArray', array($arrayToConstructFrom));
-        $this->getControllerClassname()->shouldBe('ControllerClassname');
+        $this->getControllerServiceId()->shouldBe('controller-service-id');
         $this->getActionName()->shouldBe('action');
         $this->getMethod()->shouldBe('GET');
         $this->getPath()->shouldBe('/path/');

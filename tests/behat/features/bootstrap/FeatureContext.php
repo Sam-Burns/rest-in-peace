@@ -8,6 +8,7 @@ use Behat\Gherkin\Node\TableNode;
 use RestInPeace\Application;
 use RestInPeace\Response\JsonResponse;
 use RestInPeace\Request\Request;
+use DirtyNeedle\DiContainer;
 
 class FeatureContext implements Context, SnippetAcceptingContext
 {
@@ -24,6 +25,8 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function iVisit($urlPath)
     {
+        DiContainer::getInstance()->addConfigFile(APPLICATION_ROOT_DIR . '/config/dirty-needle/di.php');
+
         $application = new Application;
         $application->configureFromFiles([APPLICATION_ROOT_DIR . '/config/rest-in-peace/routing.php']);
         $request = Request::constructWithPathAndMethod($urlPath, 'GET');

@@ -8,7 +8,7 @@ return array(
             'hello-world-get' => array(
                 'path'                 => '/path/',
                 'method'               => 'GET',
-                'controller_classname' => '\Classname',
+                'controller_serviceid' => 'service-id',
                 'action_name'          => 'action'
             )
 

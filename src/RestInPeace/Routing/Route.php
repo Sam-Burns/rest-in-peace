@@ -5,7 +5,7 @@ namespace RestInPeace\Routing;
 class Route
 {
     /** @var string */
-    private $controllerClassname;
+    private $controllerServiceId;
 
     /** @var string */
     private $actionName;
@@ -24,8 +24,8 @@ class Route
     public static function constructWithControllerAndActionName($controllerClassname, $actionName)
     {
         $route = new Route();
-        $route->setControllerClassname($controllerClassname);
-        $route->setActionName($actionName);
+        $route->controllerServiceId = $controllerClassname;
+        $route->actionName = $actionName;
         return $route;
     }
 
@@ -48,7 +48,7 @@ class Route
     {
         $route = new Route();
 
-        $route->controllerClassname = $arrayToConstructFrom['controller_classname'];
+        $route->controllerServiceId = $arrayToConstructFrom['controller_serviceid'];
         $route->actionName          = $arrayToConstructFrom['action_name'];
         $route->method              = $arrayToConstructFrom['method'];
         $route->path                = $arrayToConstructFrom['path'];
@@ -59,9 +59,9 @@ class Route
     /**
      * @return string
      */
-    public function getControllerClassname()
+    public function getControllerServiceId()
     {
-        return $this->controllerClassname;
+        return $this->controllerServiceId;
     }
 
     /**
@@ -70,22 +70,6 @@ class Route
     public function getActionName()
     {
         return $this->actionName;
-    }
-
-    /**
-     * @param string $controllerClassname
-     */
-    private function setControllerClassname($controllerClassname)
-    {
-        $this->controllerClassname = $controllerClassname;
-    }
-
-    /**
-     * @param string $actionName
-     */
-    private function setActionName($actionName)
-    {
-        $this->actionName = $actionName;
     }
 
     /**

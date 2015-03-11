@@ -20,6 +20,6 @@ class RouteBuilderTest extends TestCase
         // ASSERT
         $this->assertInternalType('array', $result);
         $this->assertInstanceOf('\RestInPeace\Routing\Route', $result[0]);
-        $this->assertEquals($result[0]->getControllerClassname(), '\Classname');
+        $this->assertEquals($result[0]->getControllerServiceId(), 'service-id');
     }
 }

@@ -60,9 +60,9 @@ class FrontController
     public function executeRequest(Request $request)
     {
         $route = $this->routeManager->getRouteForRequest($request);
-        $controllerClassname = $route->getControllerClassname();
+        $controllerServiceId = $route->getControllerServiceId();
         $actionName = $route->getActionName();
-        $controller = $this->controllerRetriever->getController($controllerClassname);
+        $controller = $this->controllerRetriever->getController($controllerServiceId);
         $response = $controller->$actionName($request);
         return $response;
     }

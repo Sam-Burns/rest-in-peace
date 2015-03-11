@@ -18,7 +18,7 @@ return array(
         ),
 
         'rest-in-peace.controllerretriever' => array(
-            'class' => '\RestInPeace\Application\ControllerRetrieval\DirectInstantiationControllerRetriever'
+            'class' => '\RestInPeace\Application\ControllerRetrieval\DirtyNeedleControllerRetriever'
         ),
 
         'rest-in-peace.routemanager' => array(
