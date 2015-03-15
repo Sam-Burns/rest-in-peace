@@ -5,12 +5,14 @@
 
     "description": "REST-based micro-framework for PHP",
 
+    "license": "MIT",
+
     "require": {
 
         "php": ">=5.4.0",
 
         "symfony/http-foundation": "2.6.4",
-        "samburns/dirty-needle":   "3.0.2"
+        "samburns/dirty-needle":   "~3.0.3"
     },
 
     "require-dev": {
