@@ -62,7 +62,7 @@ class RouteManager
      */
     private function getRoutes()
     {
-        if (!$this->routes) {
+        if (empty($this->routes)) {
             $this->routes = $this->routeBuilder->getRoutes();
         }
         return $this->routes;
