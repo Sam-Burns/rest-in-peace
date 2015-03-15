@@ -1,5 +1,5 @@
 <?php
-namespace RestInPeace\PhpspecTest;
+namespace RestInPeace\TestFixtures\Controller;
 
 use RestInPeace\Response\JsonResponse;
 use RestInPeace\Request\Request;

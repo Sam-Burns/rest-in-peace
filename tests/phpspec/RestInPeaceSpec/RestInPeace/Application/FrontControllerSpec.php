@@ -3,7 +3,7 @@ namespace RestInPeaceSpec\RestInPeace\Application;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use RestInPeace\PhpspecTest\StubController;
+use RestInPeace\TestFixtures\Controller\StubController;
 use RestInPeace\Request\Request;
 use RestInPeace\Request\RequestFromSuperglobalsBuilder;
 use RestInPeace\Response\JsonResponse;

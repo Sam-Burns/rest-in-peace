@@ -11,7 +11,7 @@ class RouteBuilderTest extends TestCase
     {
         // ARRANGE
         $routeBuilder = new RouteBuilder();
-        $routeBuilder->addConfigFile('tests/phpunit/fixtures/config_files/example_routing_file.php');
+        $routeBuilder->addConfigFile(RESTINPEACE_TEST_DIR . '/fixtures/config_files/routing/example_routing_file.php');
 
         // ACT
         $result = $routeBuilder->getRoutes();
