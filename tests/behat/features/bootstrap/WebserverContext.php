@@ -43,4 +43,20 @@ class WebserverContext implements Context, SnippetAcceptingContext
     {
         PHPUnit_Framework_Assert::assertEquals($content, $this->response->getBody());
     }
+
+    /**
+     * @Then I should get a response containing :arg1
+     */
+    public function iShouldGetAResponseContaining($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then the response status code should have been :arg1
+     */
+    public function theResponseStatusCodeShouldHaveBeen($arg1)
+    {
+        throw new PendingException();
+    }
 }

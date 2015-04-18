@@ -9,15 +9,20 @@ use RestInPeace\Application;
 use RestInPeace\Response\JsonResponse;
 use RestInPeace\Request\Request;
 use DirtyNeedle\DiContainer;
+use RestInPeace\BehatTest\Assertions\Assert;
 
 class FeatureContext implements Context, SnippetAcceptingContext
 {
+    /** @var Assert */
+    private $assert;
+
     /** @var JsonResponse */
     private $response;
 
     public function __construct()
     {
-        require_once __DIR__ . '/../../../../src-dev/bootstrap.php';
+        require_once __DIR__ . '/../../../bootstrap.php';
+        $this->assert = new Assert();
     }
 
     /**
@@ -39,5 +44,21 @@ class FeatureContext implements Context, SnippetAcceptingContext
     public function iShouldGet($content)
     {
         PHPUnit_Framework_Assert::assertEquals($content, $this->response->getBody());
+    }
+
+    /**
+     * @Then I should get a response containing :partialResponseContent
+     */
+    public function iShouldGetAResponseContaining($partialResponseContent)
+    {
+        PHPUnit_Framework_Assert::assertStringContains($partialResponseContent, $this->response->getBody());
+    }
+
+    /**
+     * @Then the response status code should have been :arg1
+     */
+    public function theResponseStatusCodeShouldHaveBeen($arg1)
+    {
+        throw new PendingException();
     }
 }
