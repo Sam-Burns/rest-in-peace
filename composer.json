@@ -1,0 +1,27 @@
+{
+    "name": "XXXXXX",
+
+    "license": "XXXXXXX",
+
+    "require": {
+
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "~4.5.0",
+        "phpspec/phpspec": "~2.1.1",
+        "behat/behat":     "~3.0.15",
+
+        "satooshi/php-coveralls":            "dev-master",
+        "henrikbjorn/phpspec-code-coverage": "~1.0.1"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Xxxxxx\\": "src/"
+        }
+    },
+
+    "repositories": [
+    ]
+}
