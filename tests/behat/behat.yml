@@ -2,10 +2,10 @@ default:
 
     suites:
 
-        inline:
+        servicelevel:
             paths:    [ %paths.base%/features/feature_files ]
             filters:  { tags: ~wip }
-            contexts: [ InlineContext ]
+            contexts: [ ServiceLevelContext ]
 
         webserver:
             paths:    [ %paths.base%/features/feature_files ]
