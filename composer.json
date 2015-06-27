@@ -22,8 +22,5 @@
         "psr-4": {
             "Xxxxxx\\": "src/"
         }
-    },
-
-    "repositories": [
-    ]
+    }
 }
