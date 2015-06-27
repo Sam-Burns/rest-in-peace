@@ -6,3 +6,8 @@ default:
             paths:    [ %paths.base%/features/feature_files ]
             filters:  { tags: ~wip }
             contexts: [ InlineContext ]
+
+        webserver:
+            paths:    [ %paths.base%/features/feature_files ]
+            filters:  { tags: ~wip&&@webserver }
+            contexts: [ WebserverContext ]
