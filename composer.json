@@ -6,7 +6,10 @@
     "version": "0.0.1",
 
     "require": {
-        "php": ">=5.5.0"
+        "php": ">=5.5.0",
+
+        "zendframework/zend-diactoros": "1.1.1",
+        "samburns/dirty-needle":        "~3.0.3"
     },
 
     "require-dev": {
