@@ -2,6 +2,7 @@
 namespace RestInPeace\Routing;
 
 use RestInPeace\Request\Request;
+use RestInPeace\Response\Error404Exception;
 
 class RouteManager
 {
@@ -41,7 +42,7 @@ class RouteManager
     }
 
     /**
-     * @throws \Exception
+     * @throws \Error404Exception
      *
      * @param Request $request
      * @return Route
@@ -54,7 +55,7 @@ class RouteManager
             }
         }
 
-        throw new \Exception('404');
+        throw new Error404Exception();
     }
 
     /**

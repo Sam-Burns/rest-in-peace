@@ -25,4 +25,12 @@ class GuzzleResponseAdapter implements CurlResponse
         $responseBody = $this->guzzleResponse->getBody(true);
         return $responseBody;
     }
+
+    /**
+     * @return int
+     */
+    public function getStatusCode()
+    {
+        return $this->guzzleResponse->getStatusCode();
+    }
 }

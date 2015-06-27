@@ -43,4 +43,15 @@ class WebserverContext implements Context, SnippetAcceptingContext
     {
         PHPUnit_Framework_Assert::assertEquals($content, $this->response->getBody());
     }
+
+    /**
+     * @Then the status code of the HTTP response should be :expectedStatusCode
+     */
+    public function theStatusCodeOfTheHttpResponseShouldBe($expectedStatusCode)
+    {
+        PHPUnit_Framework_Assert::assertEquals(
+            $expectedStatusCode,
+            $this->response->getStatusCode()
+        );
+    }
 }

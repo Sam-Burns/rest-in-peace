@@ -23,4 +23,14 @@ class RouteManagerSpec extends ObjectBehavior
 
         $this->getRouteForRequest($request)->shouldBe($route);
     }
+
+    function it_can_throw_a_404_exception(RouteBuilder $routeBuilder)
+    {
+        $route = Route::constructWithPath('/path/');
+        $routeBuilder->getRoutes()->willReturn(array($route));
+
+        $request = Request::constructWithPathAndMethod('/non-existent-resource/', 'GET');
+
+        $this->shouldThrow('\RestInPeace\Response\Error404Exception')->during('getRouteForRequest', array($request));
+    }
 }
