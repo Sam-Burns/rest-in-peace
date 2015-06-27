@@ -6,19 +6,18 @@ use Behat\Behat\Context\Context;
 
 class ServiceLevelContext implements Context, SnippetAcceptingContext
 {
-
     /**
-     * @When I send a GET request to :arg1
+     * @When I send a GET request to :path
      */
-    public function iSendAGetRequestTo($arg1)
+    public function iSendAGetRequestTo($path)
     {
         throw new PendingException();
     }
 
     /**
-     * @Then I should get status code :arg1
+     * @Then I should get status code :expectedStatusCode
      */
-    public function iShouldGetStatusCode($arg1)
+    public function iShouldGetStatusCode($expectedStatusCode)
     {
         throw new PendingException();
     }
