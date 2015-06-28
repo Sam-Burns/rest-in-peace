@@ -22,6 +22,12 @@
         "henrikbjorn/phpspec-code-coverage": "~1.0.1"
     },
 
+    "autoload-dev": {
+        "psr-0": {
+            "RestInPeace\\SampleApp": "src-dev/"
+        }
+    },
+
     "autoload": {
         "psr-0": {
             "RestInPeace\\": "src/"

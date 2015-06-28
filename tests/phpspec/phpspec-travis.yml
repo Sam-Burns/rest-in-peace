@@ -4,7 +4,13 @@ suites:
         namespace: RestInPeace
         spec_prefix: RestInPeace\Spec
         src_path: src/
-        spec_path:  tests/phpspec/
+        spec_path: tests/phpspec/
+
+    SampleApp:
+        namespace: RestInPeace\SampleApp
+        spec_prefix: RestInPeaceSampleApp\Spec
+        src_path: src-dev/
+        spec_path: tests/phpspec/
 
 extensions:
     - PhpSpec\Extension\CodeCoverageExtension
