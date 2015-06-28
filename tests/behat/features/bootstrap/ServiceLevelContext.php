@@ -7,6 +7,7 @@ use Zend\Diactoros\Request;
 use DirtyNeedle\DiContainer;
 use RestInPeace\FrontController;
 use Psr\Http\Message\ResponseInterface as PsrResponse;
+use RestInPeace\SampleApp\Storage\InMemoryDataStore;
 
 class ServiceLevelContext implements Context, SnippetAcceptingContext
 {
