@@ -29,15 +29,6 @@ class ServiceLevelContext implements Context, SnippetAcceptingContext
     }
 
     /**
-     * @return FrontController
-     */
-    private function getFrontController()
-    {
-        $diContainer = DiContainer::getInstance();
-        return $diContainer->get('restinpeace.frontcontroller');
-    }
-
-    /**
      * @Then I should get status code :expectedStatusCode
      */
     public function iShouldGetStatusCode($expectedStatusCode)
@@ -49,9 +40,36 @@ class ServiceLevelContext implements Context, SnippetAcceptingContext
     }
 
     /**
-     * @Given there is a resource of type :resourceType with ID :id
+     * @Given there is a resource of type :resourceType with ID :id and body :body
      */
-    public function thereIsAResourceOfTypeWithId($resourceType, $id)
+    public function thereIsAResourceOfTypeWithId($resourceType, $id, $body)
+    {
+        $dataStore = $this->getDataStore();
+        $dataStore->addResource($resourceType, $id, $body);
+    }
+
+    /**
+     * @return FrontController
+     */
+    private function getFrontController()
+    {
+        $diContainer = DiContainer::getInstance();
+        return $diContainer->get('restinpeace.frontcontroller');
+    }
+
+    /**
+     * @return InMemoryDataStore
+     */
+    private function getDataStore()
+    {
+        $diContainer = DiContainer::getInstance();
+        return $diContainer->get('restinpeace-sampleapp.inmemorydatastore');
+    }
+
+    /**
+     * @Then I should get response body :expectedBody
+     */
+    public function iShouldGetResponseBody($expectedBody)
     {
         throw new PendingException();
     }
