@@ -72,6 +72,9 @@ class ServiceLevelContext implements Context, SnippetAcceptingContext
      */
     public function iShouldGetResponseBody($expectedBody)
     {
-        throw new PendingException();
+        PHPUnit_Framework_Assert::assertEquals(
+            $expectedBody,
+            $this->lastResponse->getBody()
+        );
     }
 }
