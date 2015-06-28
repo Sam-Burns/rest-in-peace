@@ -9,7 +9,8 @@
         "php": ">=5.5.0",
 
         "zendframework/zend-diactoros": "1.1.1",
-        "samburns/dirty-needle":        "~3.0.3"
+        "samburns/dirty-needle":        "~3.0.3",
+        "psr/http-message":             "1.0.0"
     },
 
     "require-dev": {
