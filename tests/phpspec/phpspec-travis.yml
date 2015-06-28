@@ -1,11 +1,10 @@
 suites:
 
     Main:
-        namespace: Xxxxxx
-        spec_prefix: XxxxxxSpec
+        namespace: RestInPeace
+        spec_prefix: RestInPeace\Spec
         src_path: src/
         spec_path:  tests/phpspec/
-        psr4_prefix: Xxxxxx
 
 extensions:
     - PhpSpec\Extension\CodeCoverageExtension
