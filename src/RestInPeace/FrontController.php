@@ -3,6 +3,7 @@ namespace RestInPeace;
 
 use Psr\Http\Message\RequestInterface as PsrRequest;
 use Psr\Http\Message\ResponseInterface as PsrResponse;
+use Zend\Diactoros\Response;
 
 class FrontController
 {
@@ -12,6 +13,6 @@ class FrontController
      */
     public function getResponseForRequest(PsrRequest $request)
     {
-        // TODO: write logic here
+        return new Response;
     }
 }

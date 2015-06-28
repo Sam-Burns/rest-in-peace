@@ -6,9 +6,13 @@ use Behat\Behat\Context\Context;
 use Zend\Diactoros\Request;
 use DirtyNeedle\DiContainer;
 //use RestInPeace\FrontController;
+use Psr\Http\Message\ResponseInterface as PsrResponse;
 
 class ServiceLevelContext implements Context, SnippetAcceptingContext
 {
+    /** @var PsrResponse */
+    private $lastResponse;
+
     public function __construct()
     {
         require_once __DIR__ . '/../../../../src/bootstrap.php';
@@ -21,7 +25,7 @@ class ServiceLevelContext implements Context, SnippetAcceptingContext
     {
         $request = new Request($path, 'GET');
         $frontController = $this->getFrontController();
-        $response = $frontController->getResponseForRequest($request);
+        $this->lastResponse = $frontController->getResponseForRequest($request);
     }
 
     private function getFrontController()

@@ -15,5 +15,6 @@ class FrontControllerSpec extends ObjectBehavior
     function it_can_return_http_responses(RequestInterface $request)
     {
         $response = $this->getResponseForRequest($request);
+        $response->shouldImplement('\Psr\Http\Message\ResponseInterface');
     }
 }
