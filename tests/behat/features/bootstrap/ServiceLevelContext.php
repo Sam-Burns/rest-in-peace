@@ -1,5 +1,6 @@
 <?php
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Context\Context;
 use Zend\Diactoros\Request;
@@ -45,5 +46,13 @@ class ServiceLevelContext implements Context, SnippetAcceptingContext
             $expectedStatusCode,
             $this->lastResponse->getStatusCode()
         );
+    }
+
+    /**
+     * @Given there is a resource of type :resourceType with ID :id
+     */
+    public function thereIsAResourceOfTypeWithId($resourceType, $id)
+    {
+        throw new PendingException();
     }
 }
