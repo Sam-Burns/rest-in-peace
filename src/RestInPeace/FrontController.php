@@ -13,6 +13,6 @@ class FrontController
      */
     public function getResponseForRequest(PsrRequest $request)
     {
-        return new Response;
+        return new Response('php://memory', 404);
     }
 }

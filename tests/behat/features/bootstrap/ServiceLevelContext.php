@@ -1,11 +1,10 @@
 <?php
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Context\Context;
 use Zend\Diactoros\Request;
 use DirtyNeedle\DiContainer;
-//use RestInPeace\FrontController;
+use RestInPeace\FrontController;
 use Psr\Http\Message\ResponseInterface as PsrResponse;
 
 class ServiceLevelContext implements Context, SnippetAcceptingContext
@@ -28,6 +27,9 @@ class ServiceLevelContext implements Context, SnippetAcceptingContext
         $this->lastResponse = $frontController->getResponseForRequest($request);
     }
 
+    /**
+     * @return FrontController
+     */
     private function getFrontController()
     {
         $diContainer = DiContainer::getInstance();
@@ -39,6 +41,9 @@ class ServiceLevelContext implements Context, SnippetAcceptingContext
      */
     public function iShouldGetStatusCode($expectedStatusCode)
     {
-        throw new PendingException();
+        PHPUnit_Framework_Assert::assertEquals(
+            $expectedStatusCode,
+            $this->lastResponse->getStatusCode()
+        );
     }
 }
