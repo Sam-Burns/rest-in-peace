@@ -9,5 +9,5 @@ suites:
     SampleApp:
         namespace: RestInPeace\SampleApp
         spec_prefix: RestInPeaceSampleApp\Spec
-        src_path: src-dev/
+        src_path: sample-app/src/
         spec_path: tests/phpspec/

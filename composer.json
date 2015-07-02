@@ -24,7 +24,7 @@
 
     "autoload-dev": {
         "psr-0": {
-            "RestInPeace\\SampleApp": "src-dev/"
+            "RestInPeace\\SampleApp": "sample-app/src/"
         }
     },
 
