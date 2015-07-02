@@ -7,4 +7,5 @@ clear;
 
 php -S localhost:8081 sample-app/public/index.php &> /dev/null &
 WEBSERVER_PROCESS_ID=$!;
+./vendor/bin/behat --config tests/behat/behat.yml --suite webserver;
 kill -9 $WEBSERVER_PROCESS_ID;
