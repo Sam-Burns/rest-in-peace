@@ -6,4 +6,18 @@
         </testsuite>
     </testsuites>
 
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../../src/</directory>
+            <directory suffix=".php">../../sample-app/src/</directory>
+        </whitelist>
+        <blacklist>
+            <file>../../src/bootstrap.php</file>
+        </blacklist>
+    </filter>
+
+    <logging>
+        <log type="coverage-clover" target="coverage/clover.xml"/>
+    </logging>
+
 </phpunit>

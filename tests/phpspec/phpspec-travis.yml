@@ -20,7 +20,8 @@ formatter.name: dot
 code_coverage:
     whitelist:
         - src/
+        - sample-app/src/
     format:
         - clover
     output:
-        clover: build/logs/clover.xml
+        clover: tests/phpspec/coverage/clover.xml
