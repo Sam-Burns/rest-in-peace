@@ -1,8 +1,7 @@
 <?php
-
 namespace RestInPeace\SampleApp\Controller;
 
-class HomepageController
+class IndexController
 {
 
     public function indexAction()

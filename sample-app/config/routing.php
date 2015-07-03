@@ -3,9 +3,9 @@ return array(
 
     'routes' => array(
 
-        'homepage' => array(
+        'index' => array(
             'path'                  => '/',
-            'controller-service-id' => 'restinpeace-sampleapp.controller.homepage',
+            'controller-service-id' => 'restinpeace-sampleapp.controller.index',
             'action-method-name'    => 'indexAction',
         ),
 
