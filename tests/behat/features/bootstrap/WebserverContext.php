@@ -1,10 +1,10 @@
 <?php
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Context\Context;
 use Guzzle\Http\Client as GuzzleClient;
 use Guzzle\Http\Message\Response as GuzzleResponse;
+use Guzzle\Http\Exception\BadResponseException as GuzzleResponseException;
 
 class WebserverContext implements Context, SnippetAcceptingContext
 {
@@ -24,7 +24,13 @@ class WebserverContext implements Context, SnippetAcceptingContext
      */
     public function iSendAGetRequestTo($path)
     {
-        $this->lastResponse = $this->guzzleClient->get('http://localhost:8081' . $path);
+        $request = $this->guzzleClient->get('http://localhost:8081' . $path);
+
+        try {
+            $this->lastResponse = $this->guzzleClient->send($request);
+        } catch (GuzzleResponseException $guzzleResponseException) {
+            $this->lastResponse = $guzzleResponseException->getResponse();
+        }
     }
 
     /**

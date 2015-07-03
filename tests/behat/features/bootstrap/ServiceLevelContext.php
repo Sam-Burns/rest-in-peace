@@ -17,6 +17,8 @@ class ServiceLevelContext implements Context, SnippetAcceptingContext
     public function __construct()
     {
         require_once __DIR__ . '/../../../../src/bootstrap.php';
+        $diContainer = DiContainer::getInstance();
+        $diContainer->addConfigFile(APPLICATION_ROOT_DIR . '/sample-app/config/di/di.php');
     }
 
     /**
