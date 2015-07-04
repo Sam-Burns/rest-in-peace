@@ -15,7 +15,7 @@ class RoutingIntegrationTest extends TestCase
         $request = new Request('http://hostname.com/', 'GET');
 
         $router = new Router();
-        // @todo Some kind of router ingestion of config file
+        $router->addConfig(__DIR__ . '/fixtures/sample_routing_file.php');
 
         // ACT
         $route = $router->getRouteForRequest($request);

@@ -1,14 +1,19 @@
 <?php
 return array(
 
-    'routes' => array(
+    'rest-in-peace' => array(
 
-        'index' => array(
-            'path'                  => '/',
-            'controller-service-id' => 'restinpeace-sampleapp.controller.index',
-            'action-method-name'    => 'indexAction',
-        ),
+        'routing' => array(
 
-    ),
+            'index' => array(
+                'route'                 => '/',
+                'method'                => 'GET',
+                'controller-service-id' => 'controllers.index',
+                'action-method-name'    => 'indexAction',
+            ),
+
+        )
+
+    )
 
 );

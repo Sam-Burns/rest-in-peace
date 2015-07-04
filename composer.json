@@ -10,7 +10,8 @@
 
         "zendframework/zend-diactoros": "1.1.1",
         "samburns/dirty-needle":        "~3.0.3",
-        "psr/http-message":             "1.0.0"
+        "psr/http-message":             "1.0.0",
+        "sam-burns/config-tree":        "0.2.0"
     },
 
     "require-dev": {
