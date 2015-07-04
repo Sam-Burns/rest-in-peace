@@ -1,5 +1,5 @@
 <?php
-namespace RestInPeace\Test;
+namespace RestInPeace\Test\Routing;
 
 use RestInPeace\Routing\Router;
 use PHPUnit_Framework_TestCase as TestCase;
