@@ -7,6 +7,7 @@ class Router
 {
     /**
      * @param PsrRequest $request
+     * @return Route
      */
     public function getRouteForRequest(PsrRequest $request)
     {

@@ -1,10 +1,10 @@
 <?php
-namespace RestInPeace\Test;
+namespace RestInPeace\Test\DependencyInjection;
 
 use DirtyNeedle\DiContainer;
 use PHPUnit_Framework_TestCase as TestCase;
 
-class DiTest extends TestCase
+class DiConfigTest extends TestCase
 {
     public function testCanGetFrontControllerFromDi()
     {
