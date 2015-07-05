@@ -46,4 +46,20 @@ class Route
     {
         return $this->actionMethodName;
     }
+
+    /**
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHttpMethod()
+    {
+        return $this->httpMethod;
+    }
 }
