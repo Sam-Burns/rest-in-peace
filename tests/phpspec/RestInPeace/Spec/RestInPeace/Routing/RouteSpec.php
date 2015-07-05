@@ -8,15 +8,7 @@ class RouteSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith(
-            'index',
-            [
-                'route'                 => '/',
-                'method'                => 'GET',
-                'controller-service-id' => 'controllers.index',
-                'action-method-name'    => 'indexAction',
-            ]
-        );
+        $this->beConstructedWith('index', '/', 'GET', 'controllers.index', 'indexAction');
     }
 
     function it_is_initializable()

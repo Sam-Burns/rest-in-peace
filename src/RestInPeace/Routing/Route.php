@@ -6,17 +6,29 @@ class Route
     /** @var string */
     private $name;
 
-    /** @var array */
-    private $config;
+    /** @var string */
+    private $path;
+
+    /** @var string */
+    private $httpMethod;
+
+    /** @var string */
+    private $controllerServiceId;
+
+    /** @var string */
+    private $actionMethodName;
 
     /**
      * @param string $name
-     * @param array  $config
+     * @param string $path
+     * @param string $httpMethod
+     * @param string $controllerServiceId
+     * @param string $actionMethodName
      */
-    public function __construct($name, $config)
+    public function __construct($name, $path, $httpMethod, $controllerServiceId, $actionMethodName)
     {
-        $this->name = $name;
-        $this->config = $config;
+        $this->controllerServiceId = $controllerServiceId;
+        $this->actionMethodName = $actionMethodName;
     }
 
     /**
@@ -24,7 +36,7 @@ class Route
      */
     public function getControllerServiceId()
     {
-        return $this->config['controller-service-id'];
+        return $this->controllerServiceId;
     }
 
     /**
@@ -32,6 +44,6 @@ class Route
      */
     public function getActionMethodName()
     {
-        return $this->config['action-method-name'];
+        return $this->actionMethodName;
     }
 }
